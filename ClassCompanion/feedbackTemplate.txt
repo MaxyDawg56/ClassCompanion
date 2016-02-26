@@ -1,0 +1,19 @@
+**Acknowledged Bugs/Other**
+-The companion will greet you if your UI is reloading/go into an instance
+-The list of onKill messages is small, plan on expanding soon
+-The death/levelup sound files are merely placeholders
+
+1. Does the companion feel like an actual being? Why/Whynot?
+	a.
+
+2. What would you want to make the experience feel more in depth and life like?
+	a.
+
+3. For the onKill messages, do they seem to not occurr often enough?
+	a.
+
+4. Do you feel like there is too much information given when gaining spells (Specifically level 6)?
+	a.
+
+5. Are there any other suggestions or bugs you would like to let the developers know?
+	a.

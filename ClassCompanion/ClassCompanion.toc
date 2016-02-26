@@ -1,0 +1,8 @@
+## Interface: 60200
+## Title: ClassCompanion
+## Author: Cam Loren
+## Version: 0.8
+## SavedVariablesPerCharacter: hasLoggedIn
+
+ClassCompanionMessages.lua
+ClassCompanionMain.lua
