@@ -40,10 +40,10 @@ Kill_frame:SetScript("OnEvent",
             ClassCompanionKillMessageCap = math.random(10, 15)
             -- Sets counter back to 1 after cap is hit --
             ClassCompanionKillCounter = 1
-            ClassCompanionKillMessageChoice = math.random(1,5)
+            ClassCompanionKillMessageChoice = math.random(1,7)
             -- Message redundancy check --
             while (ClassCompanionKillMessageRedundancy == ClassCompanionKillMessageChoice) do
-              ClassCompanionKillMessageChoice = math.random(1,5)
+              ClassCompanionKillMessageChoice = math.random(1,7)
             end
             -- Message 1 --
             if(ClassCompanionKillMessageChoice == 1) then
@@ -64,6 +64,14 @@ Kill_frame:SetScript("OnEvent",
              -- Message 5 --
             if(ClassCompanionKillMessageChoice == 5) then
               wait(0, fillerWaitFunction, druidKillMessage5, whisperSound)
+            end
+             -- Message 6 --
+            if(ClassCompanionKillMessageChoice == 6) then
+              wait(0, fillerWaitFunction, druidKillMessage6, whisperSound)
+            end
+             -- Message 7 --
+            if(ClassCompanionKillMessageChoice == 7) then
+              wait(0, fillerWaitFunction, druidKillMessage7, whisperSound)
             end
         end
         -- Increments the kills --

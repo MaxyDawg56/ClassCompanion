@@ -43,6 +43,8 @@ function(self, event, ...)
         druidKillMessage3 = ("|cffFF7D0AOstmarian whispers: Well let's hope that their passing will contribute to a greater tomorrow, yes?|r"):format()
         druidKillMessage4 = ("|cffFF7D0AOstmarian whispers: Did they start the assault or did you? I don't pay much attention to fighting.|r"):format()
         druidKillMessage5 = ("|cffFF7D0AOstmarian whispers: Oh again with the killing, what would D.E.H.T.A. think of this?|r"):format()
+        druidKillMessage6 = ("|cffFF7D0AOstmarian whispers: Is this really what you want to do with your free time?|r"):format()
+        druidKillMessage7 = ("|cffFF7D0AOstmarian whispers: I question your sanity..|r"):format()
         --LearnSpells--
         -- Moonfire
         druidMoonfireMessage1 = ("|cffFF7D0AOstmarian whispers: You have learned Moonfire! This is a fairly powerful spell at a low level and is instant cast!|r"):format()
