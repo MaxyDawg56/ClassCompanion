@@ -2,13 +2,13 @@ local Login_Frame = CreateFrame("Frame")
 Login_Frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 Login_Frame:SetScript("OnEvent", 
 function(self, event, ...)
-	playerLevel = UnitLevel("player")
+    playerLevel = UnitLevel("player")
     -- Counter to keep track of kills --
     ClassCompanionKillCounter = 1
     -- Cap for the kills, at the cap a message will play --
     ClassCompanionKillMessageCap = 0
-    -- Ensures no message will play twice in a row --
-    ClassCompanionKillMessageRedundancy = 0
+    -- Used to index through the list for messages --
+    KillMessageRedundancy = 0
 
     --Sound Files--
     whisperSound = "Interface\\AddOns\\ClassCompanion\\whisper.ogg"
@@ -16,16 +16,16 @@ function(self, event, ...)
     levelUpSound = "Interface\\AddOns\\ClassCompanion\\NYEEESS.ogg"
 
     --Player Info--
-	playerName = UnitName("player")
-	playerRealm = GetRealmName()
-	playerClass = UnitClass("player")
+    playerName = UnitName("player")
+    playerRealm = GetRealmName()
+    playerClass = UnitClass("player")
 
-	--General--
-	levelUpMessage = ("|cffFF7D0AOstmarian whispers: Congratulations " .. playerName .. ", you are " .. (100 - playerLevel - 1) .. " levels from your maximum potential!"):format()
+    --General--
+    levelUpMessage = ("|cffFF7D0AOstmarian whispers: Congratulations " .. playerName .. ", you are " .. (100 - playerLevel - 1) .. " levels from your maximum potential!"):format()
 
-	--Druid--
-	if playerClass == "Druid" then
-		--Login--
+    --Druid--
+    if playerClass == "Druid" then
+        --Login--
         druidFirstLoginMessage1 = ("|cffFF7D0AOstmarian whispers: Salutations " .. playerName .. " of the realm " .. playerRealm .. ".|r" ):format()
         druidFirstLoginMessage2 = ("|cffFF7D0AOstmarian whispers: I Ostmarian, fabled archdruid of the ancient realm, am here to guide you.|r" ):format()
         druidRegLoginMessage1 = ("|cffFF7D0AOstmarian whispers: Back again I see. I have been awaiting your arrival since last we met.|r"):format()
@@ -33,10 +33,10 @@ function(self, event, ...)
         -- Death --
         druidDeathMessage1 = ("|cffFF7D0AOstmarian whispers: Ah... well fret not my dear friend, the fabrics of this world will build you anew.|r"):format()
         --Lvl less than 3--
-		druidWrathMessage1 = ("|cffFF7D0AOstmarian whispers: Currently your only spell is Wrath, its baseline cast time is 2 seconds and does moderate damage.|r"):format()
-		druidWrathMessage2 = ("|cffFF7D0AOstmarian whispers: You'll be continuously casting this until you gain other abilities.|r"):format()
-		--Kills--
-		-- The '|cffXXXXXX', '|r', and ':format()' are for message coloring (The X's represent a hex value)
+        druidWrathMessage1 = ("|cffFF7D0AOstmarian whispers: Currently your only spell is Wrath, its baseline cast time is 2 seconds and does moderate damage.|r"):format()
+        druidWrathMessage2 = ("|cffFF7D0AOstmarian whispers: You'll be continuously casting this until you gain other abilities.|r"):format()
+        --Kills--
+        -- The '|cffXXXXXX', '|r', and ':format()' are for message coloring (The X's represent a hex value)
         -- To edit the message, change the text between the formating
         druidKillMessage1 = ("|cffFF7D0AOstmarian whispers: What do you think you're doing?! This is no way a druid behaves!|r"):format()
         druidKillMessage2 = ("|cffFF7D0AOstmarian whispers: For the love of Elune, stop this bloodshed!|r"):format()
@@ -45,6 +45,15 @@ function(self, event, ...)
         druidKillMessage5 = ("|cffFF7D0AOstmarian whispers: Oh again with the killing, what would D.E.H.T.A. think of this?|r"):format()
         druidKillMessage6 = ("|cffFF7D0AOstmarian whispers: Is this really what you want to do with your free time?|r"):format()
         druidKillMessage7 = ("|cffFF7D0AOstmarian whispers: I question your sanity..|r"):format()
+        -- Stores messages in an 'array' --
+        druidKillMessageList = druidKillMessage1, druidKillMessage2, druidKillMessage3, druidKillMessage4, druidKillMessage5, druidKillMessage6, druidKillMessage7}
+        -- Stores length of array --
+        druidKillMesssageCount = table.getn(druidKillMessageList)
+        -- Shuffles array on login --
+        for i = druidKillMesssageCount, 2, -1 do -- backwards
+            local r = math.random(i) -- select a random number between 1 and i
+            druidKillMessageList[i], druidKillMessageList[r] = druidKillMessageList[r], druidKillMessageList[i] -- swap the randomly selected item to position i
+        end
         --LearnSpells--
         -- Moonfire
         druidMoonfireMessage1 = ("|cffFF7D0AOstmarian whispers: You have learned Moonfire! This is a fairly powerful spell at a low level and is instant cast!|r"):format()
@@ -68,5 +77,5 @@ function(self, event, ...)
         -- Shred 
         druidShredMessage1 = ("|cffFF7D0AOstmarian whispers: The last move gained from Cat Form for now is Shred. This moves grants you a combo point.|r"):format()
         druidShredMessage2 = ("|cffFF7D0AOstmarian whispers: Using Shred in stealth grants more damage and doubles the crit chance, also does more damage against targets with bleed on them. |r"):format()
-	end
+    end
 end)

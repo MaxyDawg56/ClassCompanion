@@ -38,9 +38,10 @@ Kill_frame:SetScript("OnEvent",
         if ClassCompanionKillCounter >= ClassCompanionKillMessageCap then
             -- Sets the kill limit on the message event --
             ClassCompanionKillMessageCap = math.random(10, 15)
+            --Increments the index value--
+            KillMessageRedundancy = KillMessageRedundancy + 1
             -- Sets counter back to 1 after cap is hit --
             ClassCompanionKillCounter = 1
-            ClassCompanionKillMessageChoice = math.random(1,7)
             -- Message redundancy check --
             while (ClassCompanionKillMessageRedundancy == ClassCompanionKillMessageChoice) do
               ClassCompanionKillMessageChoice = math.random(1,7)
@@ -76,8 +77,6 @@ Kill_frame:SetScript("OnEvent",
         end
         -- Increments the kills --
         ClassCompanionKillCounter = ClassCompanionKillCounter + 1
-        -- Sets redundancy --
-        ClassCompanionKillMessageRedundancy = ClassCompanionKillMessageChoice
       end
     end
 end)
@@ -170,7 +169,7 @@ function wait(delay, func, ...)
     waitFrame = CreateFrame("Frame","WaitFrame", UIParent);
     waitFrame:SetScript("onUpdate",function (self,elapse)
       local count = #waitTable;
-      local i = 1;
+      local i = 1;                                                                                                            
       while(i<=count) do
         local waitRecord = tremove(waitTable,i);
         local d = tremove(waitRecord,1);
