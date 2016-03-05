@@ -70,7 +70,7 @@ Level_Up_Frame:SetScript("OnEvent",
     levelUpMessage = ("|cffFF7D0AOstmarian whispers: Congratulations " .. playerName .. ", you are " .. (100 - playerLevel - 1) .. " levels from your maximum potential!"):format()
     -- DRUID CLASS --
     if (playerClass == "Druid") then
-      wait(0, levelUpMessage, nil, whisperSound)
+      wait(0, fillerWaitFunction, levelUpMessage, whisperSound)
     end
     wait(0, fillerWaitFunction, nil, levelUpSound)
 end)
