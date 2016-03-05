@@ -46,7 +46,7 @@ function(self, event, ...)
         druidKillMessage6 = ("|cffFF7D0AOstmarian whispers: Is this really what you want to do with your free time?|r"):format()
         druidKillMessage7 = ("|cffFF7D0AOstmarian whispers: I question your sanity..|r"):format()
         -- Stores messages in an 'array' --
-        druidKillMessageList = druidKillMessage1, druidKillMessage2, druidKillMessage3, druidKillMessage4, druidKillMessage5, druidKillMessage6, druidKillMessage7}
+        druidKillMessageList = {druidKillMessage1, druidKillMessage2, druidKillMessage3, druidKillMessage4, druidKillMessage5, druidKillMessage6, druidKillMessage7}
         -- Stores length of array --
         druidKillMesssageCount = table.getn(druidKillMessageList)
         -- Shuffles array on login --
@@ -77,5 +77,23 @@ function(self, event, ...)
         -- Shred 
         druidShredMessage1 = ("|cffFF7D0AOstmarian whispers: The last move gained from Cat Form for now is Shred. This moves grants you a combo point.|r"):format()
         druidShredMessage2 = ("|cffFF7D0AOstmarian whispers: Using Shred in stealth grants more damage and doubles the crit chance, also does more damage against targets with bleed on them. |r"):format()
+        -- Bear Form
+        druidBearFormMessage1 = ("|cffFF7D0AOstmarian whispers: You just gained the ability to use Bear Form, a defensive form used to take reduced damage and hold enemy threat.|r"):format()
+        drudiBearFormMessage2 = ("|cffFF7D0AOstmarian whispers: The mightly Ursoc blesssed you with this knowledge, use it wisely.|r"):format()
+        -- Growl
+        druidGrowlMessage1 = ("|cffFF7D0AOstmarian whispers: With bear form comes the usage of Growl and Mangle.|r"):format()
+        druidGrowlMessage2 = ("|cffFF7D0AOstmarian whispers: Using growl on most enemies will make them focus their attacks on you, prevent your allies from taking damage.|r"):format()
+        -- Mangle
+        druidMangleMessage1 = ("|cffFF7D0AOstmarian whispers: You may also Mangle the target for 400% of your weapon damage in bear form.|r"):format()
+        -- Entangling Roots
+        druidEntRootsMessage1 = ("|cffFF7D0AOstmarian whispers: You've just gained Entangling Roots, a form of crowd control.|r"):format()
+        druidEntRootsMessage2 = ("|cffFF7D0AOstmarian whispers: Using this spell on an enemy will root them for 30 seconds, but damage may break the effect.|r"):format()
+        -- Specialization
+        druidSpecializationMessage1 = ("|cffFF7D0AOstmarian whispers: Now that you are level 10, you may pick a Specialization.|r"):format()
+        druidSpecializationMessage2 = ("|cffFF7D0AOstmarian whispers: You may pick between Feral, Guardian, Balance, or Restoration.|r"):format()
+        druidSpecializationMessage3 = ("|cffFF7D0AOstmarian whispers: These do melee damage, damage mitigation, ranged damage, and healing respectively.|r"):format()
+        druidSpecializationMessage4 = ("|cffFF7D0AOstmarian whispers: Look these over carefully, it is ultimately your path to choose.|r"):format()
+        druidSpecializationMessage5 = ("|cffFF7D0AOstmarian whispers: And now young druid, it is no longer my time to teach you about abilities.|r"):format()
+        druidSpecializationMessage6 = ("|cffFF7D0AOstmarian whispers: I will still be at your side, but it is now your responsibility to teach yourself!|r"):format()
     end
 end)

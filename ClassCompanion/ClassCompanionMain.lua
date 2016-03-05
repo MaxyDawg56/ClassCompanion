@@ -43,36 +43,16 @@ Kill_frame:SetScript("OnEvent",
             -- Sets counter back to 1 after cap is hit --
             ClassCompanionKillCounter = 1
             -- Message redundancy check --
-            while (ClassCompanionKillMessageRedundancy == ClassCompanionKillMessageChoice) do
-              ClassCompanionKillMessageChoice = math.random(1,7)
-            end
-            -- Message 1 --
-            if(ClassCompanionKillMessageChoice == 1) then
-              wait(0, fillerWaitFunction, druidKillMessage1, whisperSound)
-            end
-             -- Message 2 --
-            if(ClassCompanionKillMessageChoice == 2) then
-              wait(0, fillerWaitFunction, druidKillMessage2, whisperSound)
-            end
-             -- Message 3 --
-            if(ClassCompanionKillMessageChoice == 3) then
-              wait(0, fillerWaitFunction, druidKillMessage3, whisperSound)
-            end
-             -- Message 4 --
-            if(ClassCompanionKillMessageChoice == 4) then
-              wait(0, fillerWaitFunction, druidKillMessage4, whisperSound)
-            end
-             -- Message 5 --
-            if(ClassCompanionKillMessageChoice == 5) then
-              wait(0, fillerWaitFunction, druidKillMessage5, whisperSound)
-            end
-             -- Message 6 --
-            if(ClassCompanionKillMessageChoice == 6) then
-              wait(0, fillerWaitFunction, druidKillMessage6, whisperSound)
-            end
-             -- Message 7 --
-            if(ClassCompanionKillMessageChoice == 7) then
-              wait(0, fillerWaitFunction, druidKillMessage7, whisperSound)
+            wait(0, fillerWaitFunction, druidKillMessageList[KillMessageRedundancy], whisperSound)
+            print ("The redundancy is at: " .. KillMessageRedundancy)
+            if (KillMessageRedundancy >= druidKillMesssageCount) then
+              -- Resets redundancy --
+              KillMessageRedundancy = 0
+              -- Shuffles message list --
+              for i = druidKillMesssageCount, 2, -1 do -- backwards
+                  local r = math.random(i) -- select a random number between 1 and i
+                  druidKillMessageList[i], druidKillMessageList[r] = druidKillMessageList[r], druidKillMessageList[i] -- swap the randomly selected item to position i
+              end
             end
         end
         -- Increments the kills --
@@ -138,6 +118,34 @@ Learned_Spell_Frame:SetScript("OnEvent",
       if (spellID == 5221) then
         wait(32, fillerWaitFunction, druidShredMessage1, whisperSound)
         wait(35, fillerWaitFunction, druidShredMessage2, whisperSound)
+      end
+      -- Bear form --
+      if (spellID == 5487) then
+        wait(3, fillerWaitFunction, druidBearFormMessage1, whisperSound)
+        wait(6, fillerWaitFunction, druidBearFormMessage2, whisperSound)
+      end
+      -- Growl --
+      if (spellID == 6795) then
+        wait(9, fillerWaitFunction, druidGrowlMessage1, whisperSound)
+        wait(11, fillerWaitFunction, druidGrowlMessage2, whisperSound)
+      end
+      -- Mangle --
+      if (spellID == 33917) then
+        wait(14, fillerWaitFunction, druidMangleMessage1, whisperSound)
+      end
+      -- Entangling Roots --
+      if (spellID == 339) then
+        wait(3, fillerWaitFunction, druidEntRootsMessage1, whisperSound)
+        wait(6, fillerWaitFunction, druidEntRootsMessage1, whisperSound)
+      end
+      -- Specializations --
+      if (playerLevel == 10) then
+        wait(9, fillerWaitFunction, druidSpecializationMessage1, whisperSound)
+        wait(12, fillerWaitFunction, druidSpecializationMessage2, whisperSound)
+        wait(15, fillerWaitFunction, druidSpecializationMessage3, whisperSound)
+        wait(18, fillerWaitFunction, druidSpecializationMessage4, whisperSound)
+        wait(21, fillerWaitFunction, druidSpecializationMessage5, whisperSound)
+        wait(24, fillerWaitFunction, druidSpecializationMessage6, whisperSound)
       end
     end
 end)
