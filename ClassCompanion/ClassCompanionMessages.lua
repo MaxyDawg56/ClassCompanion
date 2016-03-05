@@ -12,8 +12,9 @@ function(self, event, ...)
 
     --Sound Files--
     whisperSound = "Interface\\AddOns\\ClassCompanion\\whisper.ogg"
-    deathSound = "Interface\\AddOns\\ClassCompanion\\BBDeathFull.ogg"
-    levelUpSound = "Interface\\AddOns\\ClassCompanion\\NYEEESS.ogg"
+    deathSound1 = "Interface\\AddOns\\ClassCompanion\\DeathSound1.ogg"
+    deathSound2 = "Interface\\AddOns\\ClassCompanion\\DeathSound2.ogg"
+    levelUpSound = "Interface\\AddOns\\ClassCompanion\\LevelUpSound.ogg"
 
     --Player Info--
     playerName = UnitName("player")

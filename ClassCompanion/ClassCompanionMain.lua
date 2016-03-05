@@ -149,7 +149,9 @@ local Death_Frame = CreateFrame("Frame")
 Death_Frame:RegisterEvent("PLAYER_DEAD")
 Death_Frame:SetScript("OnEvent", 
   function(self, event, ...)
-    wait(0, fillerWaitFunction, druidDeathMessage1, whisperSound, deathSound)
+    wait(0, fillerWaitFunction, druidDeathMessage1, whisperSound)
+    wait(0.5, fillerWaitFunction, nil, deathSound1)
+    wait(0.5, fillerWaitFunction, nil, deathSound2)
   end)
 
 -- Filler function for wait --
