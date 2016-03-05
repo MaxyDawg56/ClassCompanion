@@ -44,7 +44,6 @@ Kill_frame:SetScript("OnEvent",
             ClassCompanionKillCounter = 1
             -- Message redundancy check --
             wait(0, fillerWaitFunction, druidKillMessageList[KillMessageRedundancy], whisperSound)
-            print ("The redundancy is at: " .. KillMessageRedundancy)
             if (KillMessageRedundancy >= druidKillMesssageCount) then
               -- Resets redundancy --
               KillMessageRedundancy = 0
@@ -68,9 +67,10 @@ Level_Up_Frame:SetScript("OnEvent",
   function(self, event, ...)
     local arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9 = ...
     playerLevel = UnitLevel("player")
+    levelUpMessage = ("|cffFF7D0AOstmarian whispers: Congratulations " .. playerName .. ", you are " .. (100 - playerLevel - 1) .. " levels from your maximum potential!"):format()
     -- DRUID CLASS --
     if (playerClass == "Druid") then
-      print(levelUpMessage)
+      wait(0, levelUpMessage, nil, whisperSound)
     end
     wait(0, fillerWaitFunction, nil, levelUpSound)
 end)
@@ -96,28 +96,22 @@ Learned_Spell_Frame:SetScript("OnEvent",
       -- Cat Form --
       if (spellID == 768) then
         wait(3, fillerWaitFunction, druidCatFormMessage1, whisperSound)
-        wait(8, fillerWaitFunction, druidCatFormMessage2, whisperSound)
+        wait(6, fillerWaitFunction, druidCatFormMessage2, whisperSound)
         wait(11, fillerWaitFunction, druidCatFormMessage3, whisperSound)
-        wait(14, fillerWaitFunction, druidCatFormMessage4, whisperSound)
-      end
-      -- Feline Grace --
-      if (spellID == 125972) then
-        wait(17, fillerWaitFunction, druidFelineGraceMessage1, whisperSound)
-        wait(20, fillerWaitFunction, druidFelineGraceMessage2, whisperSound)
-        wait(23, fillerWaitFunction, druidFelineGraceMessage2, whisperSound)
+        wait(16, fillerWaitFunction, druidCatFormMessage4, whisperSound)
       end
       -- Ferocious Bite --
       if (spellID == 22568) then
-        wait(26, fillerWaitFunction, druidFerociousBiteMessage1, whisperSound)
+        wait(21, fillerWaitFunction, druidFerociousBiteMessage1, whisperSound)
       end
       -- Prowl --
       if (spellID == 5215) then
-        wait(29, fillerWaitFunction, druidProwlMessage1, whisperSound)
+        wait(26, fillerWaitFunction, druidProwlMessage1, whisperSound)
       end
       -- Shred --
       if (spellID == 5221) then
-        wait(32, fillerWaitFunction, druidShredMessage1, whisperSound)
-        wait(35, fillerWaitFunction, druidShredMessage2, whisperSound)
+        wait(31, fillerWaitFunction, druidShredMessage1, whisperSound)
+        wait(36, fillerWaitFunction, druidShredMessage2, whisperSound)
       end
       -- Bear form --
       if (spellID == 5487) then

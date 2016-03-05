@@ -20,9 +20,6 @@ function(self, event, ...)
     playerRealm = GetRealmName()
     playerClass = UnitClass("player")
 
-    --General--
-    levelUpMessage = ("|cffFF7D0AOstmarian whispers: Congratulations " .. playerName .. ", you are " .. (100 - playerLevel - 1) .. " levels from your maximum potential!"):format()
-
     --Druid--
     if playerClass == "Druid" then
         --Login--
@@ -66,10 +63,6 @@ function(self, event, ...)
         druidCatFormMessage2 = ("|cffFF7D0AOstmarian whispers: It allows you to shapeshift into, well, a cat! Doing so allows different abilities and restricts others.|r"):format()
         druidCatFormMessage3 = ("|cffFF7D0AOstmarian whispers: In this form you use some abilities to gain combo points and others to spend them.|r"):format()
         druidCatFormMessage4 = ("|cffFF7D0AOstmarian whispers: (P.S. Don't use the gnomes as a scratching post, they don't respond well to it.)|r"):format()
-        -- Feline Grace
-        druidFelineGraceMessage1 = ("|cffFF7D0AOstmarian whispers: One of the first moves gained from Cat Form is Feline Grace!|r"):format()
-        druidFelineGraceMessage2 = ("|cffFF7D0AOstmarian whispers: While in Cat Form, Feline Grace enables you to take less damage from falling.|r"):format()
-        druidFelineGraceMessage3 = ("|cffFF7D0AOstmarian whispers: You don't need to use this move, it's a passive and always activated while in Cat Form.|r"):format()
         -- Ferocious Bite
         druidFerociousBiteMessage1 = ("|cffFF7D0AOstmarian whispers: The next move gained from Cat Form is Ferocious Bite. It does higher damage based on higher combo points, up to 5.|r"):format()
         -- Prowl
